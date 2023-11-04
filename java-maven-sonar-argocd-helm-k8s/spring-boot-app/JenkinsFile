@@ -54,7 +54,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+                    git config --global http.sslVerify false
                     git config user.email "arafin2021@gmail.com"
                     git config user.name "Arafin Ahmed"
                     BUILD_NUMBER=${BUILD_NUMBER}
